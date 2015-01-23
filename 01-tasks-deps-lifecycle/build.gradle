@@ -1,13 +1,15 @@
-task hiAusConfig {
+task task1 {
   println "Task 1 - Configuration"
+/*
   doLast {
     println "Task 1 - Execution"
   }
+*/
 }
 
-task hiAusExec << {
+task task2 << {
   println "Task 2 - Execution"
 }
 
 
-hiAusConfig.dependsOn hiAusExec
+//hiAusConfig.dependsOn hiAusExec
