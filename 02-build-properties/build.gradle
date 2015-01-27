@@ -1,0 +1,7 @@
+task info << {
+  println projectDir
+  println buildDir
+  println name
+  println group
+}
+

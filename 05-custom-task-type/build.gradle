@@ -1,0 +1,5 @@
+task foobarDefault(type: MyTask) { }
+
+task foobarCustom(type: MyTask) {
+  myProperty = "custom value"
+}

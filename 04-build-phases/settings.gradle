@@ -1,0 +1,2 @@
+println "-> Initialisierungsphase"
+println "  -> foo: ${foo}"

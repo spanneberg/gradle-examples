@@ -1,0 +1,5 @@
+ant.importBuild 'build.xml'
+
+task helloFromGradle(dependsOn: 'helloFromAnt') << {
+  println "Hello from Gradle"
+}

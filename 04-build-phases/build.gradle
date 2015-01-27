@@ -1,0 +1,9 @@
+println "-> Konfigurationsphase"
+println "  -> foo: ${foo}"
+
+foo='bla'
+
+task foobar << {
+  println "-> Ausführungsphase"
+  println "  -> foo: ${foo}"
+}

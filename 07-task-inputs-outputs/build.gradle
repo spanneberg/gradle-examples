@@ -1,0 +1,15 @@
+task generateFiles {
+  def namesFile = file('input/filenames.txt')
+  def outputDir = mkdir("${buildDir}/generated")
+
+  inputs.file namesFile
+  outputs.dir outputDir
+
+  doLast {
+    namesFile.eachLine { l ->
+      def filePath = "${outputDir}/${l}"
+      println "Generating file ${ relativePath(filePath) } ..."
+      file(filePath) << l
+    }
+  }
+}
