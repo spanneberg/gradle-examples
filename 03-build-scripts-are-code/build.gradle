@@ -1,5 +1,11 @@
-def numbers = 1..10
-numbers.each { number ->
-  println number
+(1..10).each { index ->
+  task "task${index}" {
+    if ( index != 1 ) {
+      dependsOn "task${index - 1}"
+    }
+    doLast {
+      println "Task ${index} is running ..."
+    }
+  }
 }
 
