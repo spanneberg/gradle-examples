@@ -12,4 +12,4 @@ task task2 << {
 }
 
 
-//hiAusConfig.dependsOn hiAusExec
+//task2.dependsOn task1

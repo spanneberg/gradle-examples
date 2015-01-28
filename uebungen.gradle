@@ -1,0 +1,35 @@
+file('.').eachDir { d ->
+  def pattern = '([0-9][0-9]).*'
+  def matcher = d.name =~ pattern
+  if ( matcher.matches() ) {
+    task "zip-uebung-${matcher[0][1]}" (type: Zip) {
+      from d.name
+      exclude '.gradle'
+      exclude 'build'
+      destinationDir = buildDir
+      archiveName    = "${d.name}.zip"
+    }
+  }
+}
+
+task zipUebungen {
+  dependsOn tasks.withType(Zip)
+}
+
+/*
+task zipUebungen << {
+  file('.').eachDir { d ->
+    if ( d.name =~ '[0-9][0-9].*' ) {
+      println "Zipping exercise ${d.name} ..."
+      zip {
+        from d {
+          exclude '.gradle'
+          exclude 'build'
+        }
+        destinationDir = "${buildDir}"
+        archiveName    = "${d.name}.zip"
+      }
+    }
+  }
+}
+*/

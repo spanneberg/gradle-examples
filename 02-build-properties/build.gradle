@@ -1,7 +1,8 @@
 task info << {
-  println projectDir
-  println buildDir
-  println name
-  println group
+  println "Project directory: ${projectDir}"
+  println "Build directory  : ${buildDir}"
+  println "Project name     : ${name}"
+  println "Group Id         : ${group}"
+  println "Project version  : ${version}"
 }
 
