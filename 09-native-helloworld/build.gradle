@@ -1,0 +1,110 @@
+apply plugin: 'c'
+
+libraries {
+  greeter
+}
+
+executables {
+  helloworld {
+    binaries.all {
+      lib libraries.greeter.static
+    }
+  }
+}
+
+// default source/header Locations: src/<name>/c und src/<name>/headers
+
+/*
+sources {
+  helloworld {
+    c {
+      lib libraries.greeter
+      source {
+        srcDir "src/source"
+        include "*.c"
+        exclude "..."
+      }
+      // mehrere source Blöcke möglich
+      // Achtung mit include/exclude Patterns!
+      exportedHeaders {
+        srcDir "src/include"
+      }
+    }
+  }
+}
+*/
+
+model {
+  /*
+  buildTypes {
+    debug
+    release
+  }
+  */
+
+  /*
+  flavors {
+    withFeatureA
+    withoutFeatureA
+  }
+  */
+
+  /*
+  platforms {
+    x86 {
+      architecture "x86"
+    }
+    x64 {
+      architecture "x86_64"
+    }
+  }
+  */
+
+  /*
+  toolChains {
+    myToolchain(Gcc) {
+      target("x64") {
+        cCompiler.executable = "/usr/bin/gcc"
+        cppCompiler.executable = "/tmp/foo"
+        assembler.executable "/tmp/foo"
+        linker.executable "/usr/bin/g++"
+        staticLibArchiver.executable "/usr/bin/ar"
+      }
+    }
+  }
+  */
+
+}
+
+/*
+binaries.all {
+  if ( buildType == buildTypes.debug ) {
+    cCompiler.args '...'
+  }
+}
+*/
+
+/*
+task foobar << { println "... wird vor Compile ausgeführt" }
+tasks.whenTaskAdded { t ->
+  if ( t.name =~ 'compileHelloworldExecutableHelloworldC' ) {
+    compileHelloworldExecutableHelloworldC.dependsOn foobar
+  }
+}
+*/
+
+
+//apply from: 'distPublish.gradle'
+
+task printGreeterSourceSet << {
+  println "Sourcen:"
+  sources.greeter.c.source.each { f ->
+    println f
+  }
+  println "Headers:"
+  sources.greeter.c.exportedHeaders.srcDirs.each { d ->
+    file(d).listFiles().each { f ->
+      println f
+    }
+  }
+}

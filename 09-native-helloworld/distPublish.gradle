@@ -1,0 +1,32 @@
+apply plugin: 'maven-publish'
+
+version = '0.0.1-SNAPSHOT'
+
+task helloworldDistribution(type: Zip, dependsOn: 'helloworldExecutable') {
+  destinationDir = file("$buildDir/dist")
+  archiveName    = "helloworld.zip"
+
+  from "${buildDir}/binaries/helloworldExecutable/"
+}
+
+publishing {
+  publications {
+    helloworld(MavenPublication) {
+      groupId 'com.gi-de'
+      artifactId 'helloworld-native'
+      version project.version
+
+      artifact helloworldDistribution
+    }
+  }
+  repositories {
+    maven {
+      url 'http://54.75.191.160:8080/artifactory/gud-workshop'
+      credentials {
+        username 'deployer'
+        password 'deployer'
+      }
+    }
+  }
+}
+

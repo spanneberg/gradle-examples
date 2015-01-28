@@ -9,3 +9,4 @@ dependencies {
 }
 
 //apply from: 'repo.gradle'
+//apply from: 'sonarqube.gradle'
