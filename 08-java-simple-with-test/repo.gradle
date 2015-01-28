@@ -1,0 +1,15 @@
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+archivesBaseName = 'java-simple-with-test'
+
+uploadArchives {
+  repositories {
+    maven {
+      url 'http://54.75.191.160:8080/artifactory/gud-workshop'
+      credentials {
+        username 'deployer'
+        password 'deployer'
+      }
+    }
+  }
+}
