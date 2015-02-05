@@ -1,8 +1,12 @@
+group = 'myGroup'
+version = '1.0.0'
+
 task info << {
   println "Project directory: ${projectDir}"
   println "Build directory  : ${buildDir}"
   println "Project name     : ${name}"
-  println "Group Id         : ${group}"
+  println "Group Id         : ${project.group}"
   println "Project version  : ${version}"
 }
 
+System.out.println(this.class);
