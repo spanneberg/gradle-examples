@@ -1,0 +1,15 @@
+apply plugin: 'c'
+
+libraries {
+  greeter
+}
+
+executables {
+  helloworld {
+    binaries.all {
+      lib libraries.greeter.static
+    }
+  }
+}
+
+//apply from: 'distPublish.gradle'

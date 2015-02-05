@@ -1,20 +1,3 @@
-apply plugin: 'c'
-
-libraries {
-  greeter
-}
-
-executables {
-  helloworld {
-    binaries.all {
-      lib libraries.greeter.static
-    }
-  }
-}
-
-// default source/header Locations: src/<name>/c und src/<name>/headers
-
-/*
 sources {
   helloworld {
     c {
@@ -32,24 +15,19 @@ sources {
     }
   }
 }
-*/
+
 
 model {
-  /*
   buildTypes {
     debug
     release
   }
-  */
 
-  /*
   flavors {
     withFeatureA
     withoutFeatureA
   }
-  */
 
-  /*
   platforms {
     x86 {
       architecture "x86"
@@ -58,9 +36,7 @@ model {
       architecture "x86_64"
     }
   }
-  */
 
-  /*
   toolChains {
     myToolchain(Gcc) {
       target("x64") {
@@ -72,29 +48,27 @@ model {
       }
     }
   }
-  */
 
 }
 
-/*
+
 binaries.all {
   if ( buildType == buildTypes.debug ) {
     cCompiler.args '...'
   }
+  if ( flavor == flavors.withFeatureA ) {
+    cCompiler.define "FEATURE_A"
+  }
 }
-*/
 
-/*
+
 task foobar << { println "... wird vor Compile ausgeführt" }
 tasks.whenTaskAdded { t ->
   if ( t.name =~ 'compileHelloworldExecutableHelloworldC' ) {
     compileHelloworldExecutableHelloworldC.dependsOn foobar
   }
 }
-*/
 
-
-//apply from: 'distPublish.gradle'
 
 task printGreeterSourceSet << {
   println "Sourcen:"

@@ -1,0 +1,15 @@
+defaultTasks 'clean', 'dist'
+
+task dist(type: Zip) {
+  from projectDir
+  include 'workspace/**'
+  include 'solutions/**'
+  exclude '**/.gradle'
+  exclude '**/build'
+  destinationDir buildDir
+  archiveName 'examples.zip'
+}
+
+task clean << {
+  delete(buildDir)
+}

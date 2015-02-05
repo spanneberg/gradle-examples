@@ -21,7 +21,7 @@ publishing {
   }
   repositories {
     maven {
-      url 'http://54.75.191.160:8080/artifactory/gud-workshop'
+      url 'http://54.73.197.78:8080/artifactory/gud-workshop'
       credentials {
         username 'deployer'
         password 'deployer'

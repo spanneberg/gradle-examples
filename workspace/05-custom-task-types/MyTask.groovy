@@ -5,7 +5,7 @@ class MyTask extends DefaultTask {
   String myProperty = 'Default Value'
 
   @TaskAction
-  void doSomething() {
+  def doSomething() {
     println "myProperty: ${myProperty}"
   }
 }

@@ -2,8 +2,8 @@ apply plugin: 'sonar-runner'
 
 sonarRunner {
   sonarProperties {
-    property "sonar.host.url", "http://54.75.191.160:9000"
-    property "sonar.jdbc.url", "jdbc:mysql://54.75.191.160:3306/sonar?useUnicode=true&characterEncoding=utf8"
+    property "sonar.host.url", "http://54.73.197.78:9000"
+    property "sonar.jdbc.url", "jdbc:mysql://54.73.197.78:3306/sonar?useUnicode=true&characterEncoding=utf8"
     property "sonar.jdbc.driverClassName", "com.mysql.jdbc.Driver"
     property "sonar.jdbc.username", "sonar"
     property "sonar.jdbc.password", "sonar"

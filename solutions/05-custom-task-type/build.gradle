@@ -1,0 +1,5 @@
+task greetingDefault(type: GreetingTask) { }
+
+task greetingCustom(type: GreetingTask) {
+  greetingName = "Bastian"
+}
